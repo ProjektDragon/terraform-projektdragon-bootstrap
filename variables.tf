@@ -9,6 +9,11 @@ locals {
   service_name = "bootstrap-template"
 }
 
+// Discord Webhook Settings
+variable "discord_webhook_secret" {
+  type    = string
+}
+
 // Cloudflare domain ID mapping
 variable "cloudflare_zone_ids" {
   type        = map
