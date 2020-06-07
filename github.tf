@@ -1,6 +1,4 @@
 resource "github_repository" "bootstrap" {
-  count = var.github_enabled == true ? 1 : 0
-
   name         = var.service_name
   description  = var.repository_description
   homepage_url = var.repository_url
@@ -28,8 +26,6 @@ resource "github_repository" "bootstrap" {
 }
 
 resource "github_branch_protection" "bootstrap" {
-  count = var.github_enabled == true ? 1 : 0
-
   repository = github_repository.bootstrap[0].name
   branch     = "master"
 
@@ -40,12 +36,6 @@ resource "github_branch_protection" "bootstrap" {
     require_code_owner_reviews = false
     dismiss_stale_reviews      = true
     dismissal_users            = var.approved_users
-  }
-
-  // Enable TFC status check
-  required_status_checks {
-    strict   = false
-    contexts = var.tfc_enabled == true ? ["atlas/${var.tfc_organization}/${var.service_name}"] : []
   }
 
   restrictions {

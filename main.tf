@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 0.12.24"
 
   backend "remote" {
-    hostname = "app.terraform.io"
+    hostname     = "app.terraform.io"
     organization = "ProjektDragon"
 
     workspaces {
@@ -16,5 +16,5 @@ provider "github" {
 }
 
 provider "cloudflare" {
-  version   = "~> 2.0"
+  version = "~> 2.0"
 }
