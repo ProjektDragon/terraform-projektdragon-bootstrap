@@ -1,5 +1,5 @@
 resource "github_repository" "bootstrap" {
-  name         = var.service_name
+  name         = local.service_name
   description  = var.repository_description
   homepage_url = var.repository_url
 

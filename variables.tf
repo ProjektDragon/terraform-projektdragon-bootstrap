@@ -5,6 +5,8 @@ locals {
   discord_webhook_secret = null // Discord Webhook route for channel
   approved_users         = ["mpmsimo"]
   terraform_version      = "0.12.24"
+
+  service_name = "bootstrap-template"
 }
 
 // Cloudflare domain ID mapping
@@ -17,11 +19,6 @@ variable "cloudflare_zone_ids" {
 }
 
 // GitHub Repository Settings
-variable "repository_name" {
-  type    = string
-  default = "bootstrap-template"
-}
-
 variable "repository_description" {
   type    = string
   default = "the most thoughtful description"
