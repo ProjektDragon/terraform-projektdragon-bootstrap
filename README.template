@@ -1,0 +1,16 @@
+# terraform-projektdragon-bootstrap
+This is a templated way to create a set of infrastructure resources needed for development of an Open Source project.
+- GitHub Repository
+- Discord Webhook for GitHub status notifications
+- DNS using `projektdragon.dev`
+
+TODO:
+- Automated creation of images from Dockerfiles
+- Persistant application hosting (via Kubernetes?)
+
+## Generating Documents
+Ensure [terraform-docs](https://github.com/segmentio/terraform-docs) is installed.
+- `brew install terraform-docs`
+
+Include the bootstrap template README and then from the Terraform module.
+`make docs`
