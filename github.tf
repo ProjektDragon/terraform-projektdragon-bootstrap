@@ -18,19 +18,16 @@ resource "github_repository" "bootstrap" {
 
   topics = []
 
-  // The following settings force recreation of the Terraform resource
-  // they will need to be disabled for "legacy" (pre-IaC) repos.
-  auto_init          = var.legacy_repo == true ? false : true
-  gitignore_template = var.legacy_repo == true ? null : "Terraform"
-  license_template   = var.legacy_repo == true ? null : "mit"
+  auto_init          = true
+  gitignore_template = "Terraform"
+  license_template   = "mit"
 }
 
 resource "github_branch_protection" "bootstrap" {
-  repository = github_repository.bootstrap[0].name
+  repository = github_repository.bootstrap.name
   branch     = "master"
 
   enforce_admins = false
-  // require_signed_commits = false
 
   required_pull_request_reviews {
     require_code_owner_reviews = false
