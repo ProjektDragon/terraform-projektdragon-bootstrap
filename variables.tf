@@ -2,7 +2,6 @@
 locals {
   github_organization = "ProjektDragon" // GitHub Organization name
 
-  discord_webhook_secret = null // Discord Webhook route for channel
   approved_users         = ["mpmsimo"]
   terraform_version      = "0.12.24"
 
