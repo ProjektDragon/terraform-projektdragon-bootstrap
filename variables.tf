@@ -1,6 +1,6 @@
 // Common variables associated with the bootstrap template
 locals {
-  github_organization = "ProjektDragon" // GitHub Organization name
+  organization = "ProjektDragon" // Terraform Cloud + GitHub Organization name
 
   approved_users         = ["mpmsimo"]
   terraform_version      = "0.12.24"
@@ -10,27 +10,37 @@ locals {
   service_url = "http://projektdragon.com"
 }
 
-// Cloudflare domain ID mapping
-variable "cloudflare_zone_ids" {
-  type        = map
-  description = "Cloudflare Zone ID's for the ProjektDragon domain."
-  default = {
-    "projektdragon.dev" = "9d98ab1a557629db4371763f6c1ebe52"
-  }
+// Enable providers on a case by case basis.
+variable "cloudflare_enabled" {
+  type = bool
+  default = false
 }
 
-// Discord Webhook Settings
-variable "discord_webhook_secret" {
-  type    = string
+variable "discord_enabled" {
+  type = bool
+  default = false
 }
 
-// GitHub Repository Settings
-variable "github_private_repo" {
-  type    = bool
-  default = true
+variable "github_enabled" {
+  type = bool
+  default = false
+}
+
+variable "terraform_cloud_enabled" {
+  type = bool
+  default = false
 }
 
 // Cloudflare DNS settings
+variable "cloudflare_domain_name" {
+  type    = string
+  default = "projektdragon.dev"
+}
+
+variable "cloudflare_zone_id" {
+  type        = string
+}
+
 variable "cloudflare_record_name" {
   default = "live"
   type    = string
@@ -46,7 +56,68 @@ variable "cloudflare_record_value" {
   type    = string
 }
 
-variable "cloudflare_domain_name" {
+// Discord Webhook Settings
+variable "discord_webhook_secret" {
   type    = string
-  default = "projektdragon.dev"
+}
+
+// GitHub Repository Settings
+variable "github_private_repo" {
+  type    = bool
+  default = false
+}
+
+variable "github_has_issues" {
+  type    = bool
+  default = true 
+}
+
+variable "github_has_projects" {
+  type    = bool
+  default = false
+}
+
+variable "github_has_wiki" {
+  type    = bool
+  default = false
+}
+
+variable "github_has_downloads" {
+  type    = bool
+  default = false
+}
+
+variable "github_gitignore_template" {
+  type = string
+  default = "Terraform"
+}
+
+variable "github_license_template" {
+  type = string
+  default = "mit"
+}
+
+// Terraform Cloud Enterprise
+variable "tfc_vcs_oauth_token" {
+  type = string
+}
+
+variable "tfc_auto_apply" {
+  type = bool
+  default = false
+}
+
+variable "tfc_file_triggers_enabled" {
+  type = bool
+  default = true 
+}
+
+variable "tfc_remote_execution" {
+  type = bool
+  default = true
+}
+
+variable "tfc_working_directory" {
+  type = string
+  default = ""
 }
