@@ -6,11 +6,8 @@ locals {
   terraform_version      = "0.12.24"
 
   service_name = "bootstrap-template"
-}
-
-// Discord Webhook Settings
-variable "discord_webhook_secret" {
-  type    = string
+  service_description = "the most thoughtful description"
+  service_url = "http://projektdragon.com"
 }
 
 // Cloudflare domain ID mapping
@@ -22,18 +19,13 @@ variable "cloudflare_zone_ids" {
   }
 }
 
+// Discord Webhook Settings
+variable "discord_webhook_secret" {
+  type    = string
+}
+
 // GitHub Repository Settings
-variable "repository_description" {
-  type    = string
-  default = "the most thoughtful description"
-}
-
-variable "repository_url" {
-  type    = string
-  default = "http://projektdragon.com"
-}
-
-variable "private_repo" {
+variable "github_private_repo" {
   type    = bool
   default = true
 }
@@ -54,7 +46,7 @@ variable "cloudflare_record_value" {
   type    = string
 }
 
-variable "domain_name" {
+variable "cloudflare_domain_name" {
   type    = string
   default = "projektdragon.dev"
 }
