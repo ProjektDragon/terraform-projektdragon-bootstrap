@@ -1,7 +1,7 @@
 resource "tfe_workspace" "bootstrap" {
   count = var.terraform_cloud_enabled == true ? 1 : 0
 
-  name                  = var.service_name
+  name                  = local.service_name
   organization          = "ProjektDragon"
   auto_apply            = var.tfc_auto_apply
   file_triggers_enabled = var.tfc_file_triggers_enabled
@@ -11,7 +11,7 @@ resource "tfe_workspace" "bootstrap" {
   working_directory = var.tfc_working_directory
 
   vcs_repo {
-    identifier         = "${local.organization}/${var.service_name}"
+    identifier         = "${local.organization}/${local.service_name}"
     ingress_submodules = false
     oauth_token_id     = var.tfc_vcs_oauth_token
   }
