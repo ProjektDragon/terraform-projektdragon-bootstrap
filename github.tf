@@ -5,10 +5,10 @@ resource "github_repository" "bootstrap" {
 
   private = var.github_private_repo == true ? true : false
 
-  has_issues    = true
-  has_projects  = false
-  has_wiki      = false
-  has_downloads = false
+  has_issues    = var.github_has_issues
+  has_projects  = var.github_has_projects 
+  has_wiki      = var.github_has_wiki 
+  has_downloads = var.github_has_downloads 
 
   allow_merge_commit = false
   allow_squash_merge = true
