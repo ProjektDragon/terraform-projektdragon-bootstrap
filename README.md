@@ -46,28 +46,31 @@ If you need additional access to either of above tools contact Reulan#0003 on Di
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| cloudflare\_domain\_name | Cloudflare DNS settings | `string` | `"projektdragon.dev"` | no |
-| cloudflare\_enabled | Enable providers on a case by case basis. | `bool` | `false` | no |
-| cloudflare\_record\_name | n/a | `string` | `"live"` | no |
-| cloudflare\_record\_type | n/a | `string` | `"CNAME"` | no |
-| cloudflare\_record\_value | n/a | `string` | `"projektdragon.stream"` | no |
-| cloudflare\_zone\_id | n/a | `string` | n/a | yes |
-| discord\_enabled | n/a | `bool` | `false` | no |
+| cloudflare\_domain\_name | Name for the Cloudflare domain. | `string` | `"projektdragon.dev"` | no |
+| cloudflare\_enabled | Enable Cloudflare DNS record creation for zone ID specified. | `bool` | `false` | no |
+| cloudflare\_record\_name | Subdomain to create | `string` | `"live"` | no |
+| cloudflare\_record\_type | DNS Record type (A, CNAME, TXT) | `string` | `"CNAME"` | no |
+| cloudflare\_record\_value | What the record should point to. | `string` | `"projektdragon.stream"` | no |
+| cloudflare\_zone\_id | Zone ID for the Cloudflare domain. | `string` | n/a | yes |
+| discord\_enabled | Reports GitHub status notifications for the repository to Discord webhook. | `bool` | `false` | no |
 | discord\_webhook\_secret | Discord Webhook Settings | `string` | n/a | yes |
-| github\_enabled | n/a | `bool` | `false` | no |
-| github\_gitignore\_template | n/a | `string` | `"Terraform"` | no |
+| github\_enabled | Creates a GitHub repository and sets up branch protection | `bool` | `false` | no |
+| github\_gitignore\_template | What language to generate a .gitignore for. | `string` | `"Terraform"` | no |
 | github\_has\_downloads | n/a | `bool` | `false` | no |
 | github\_has\_issues | n/a | `bool` | `true` | no |
 | github\_has\_projects | n/a | `bool` | `false` | no |
 | github\_has\_wiki | n/a | `bool` | `false` | no |
-| github\_license\_template | n/a | `string` | `"mit"` | no |
-| github\_private\_repo | GitHub Repository Settings | `bool` | `false` | no |
-| terraform\_cloud\_enabled | n/a | `bool` | `false` | no |
-| tfc\_auto\_apply | n/a | `bool` | `false` | no |
-| tfc\_file\_triggers\_enabled | n/a | `bool` | `true` | no |
-| tfc\_remote\_execution | n/a | `bool` | `true` | no |
+| github\_license\_template | Software license | `string` | `"mit"` | no |
+| github\_private\_repo | Is this repository hidden to the public? | `bool` | `false` | no |
+| service\_description | Brief description on what the service does or accomplishes. | `string` | `"the most thoughtful description"` | no |
+| service\_name | The name of the GitHub repository + Terraform Workspace. | `string` | `"bootstrap-template"` | no |
+| service\_url | GitHub repository URL. | `string` | `"http://projektdragon.com"` | no |
+| terraform\_cloud\_enabled | Creates a Terraform workspace to store and apply Terraform remotely. | `bool` | `false` | no |
+| tfc\_auto\_apply | Automatically runs terraform apply. | `bool` | `false` | no |
+| tfc\_file\_triggers\_enabled | Execute a terraform plan when .tf files are changed in a PR or commit. | `bool` | `true` | no |
+| tfc\_remote\_execution | When terraform cli commands are run, invoke in the cloud. | `bool` | `true` | no |
 | tfc\_vcs\_oauth\_token | Terraform Cloud Enterprise | `string` | n/a | yes |
-| tfc\_working\_directory | n/a | `string` | `""` | no |
+| tfc\_working\_directory | Path of .tf files relative to root directory. | `string` | `""` | no |
 
 ## Outputs
 
