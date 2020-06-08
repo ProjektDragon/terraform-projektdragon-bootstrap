@@ -1,5 +1,7 @@
 resource "github_repository_webhook" "discord" {
-  repository = github_repository.bootstrap.name
+  count = var.discord_enabled == true ? 1 : 0
+
+  repository = github_repository.bootstrap[0].name
 
   configuration {
     url          = "https://discordapp.com/api/webhooks/${var.discord_webhook_secret}/github"

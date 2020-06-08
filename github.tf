@@ -1,14 +1,16 @@
 resource "github_repository" "bootstrap" {
+  count = var.github_enabled == true ? 1 : 0
+
   name         = local.service_name
   description  = local.service_description
   homepage_url = local.service_url
 
   private = var.github_private_repo == true ? true : false
 
-  has_issues    = true
-  has_projects  = false
-  has_wiki      = false
-  has_downloads = false
+  has_issues    = var.github_has_issues
+  has_projects  = var.github_has_projects 
+  has_wiki      = var.github_has_wiki 
+  has_downloads = var.github_has_downloads 
 
   allow_merge_commit = false
   allow_squash_merge = true
@@ -19,12 +21,14 @@ resource "github_repository" "bootstrap" {
   topics = []
 
   auto_init          = true
-  gitignore_template = "Terraform"
-  license_template   = "mit"
+  gitignore_template = var.github_gitignore_template
+  license_template   = var.github_license_template
 }
 
 resource "github_branch_protection" "bootstrap" {
-  repository = github_repository.bootstrap.name
+  count = var.github_enabled == true ? 1 : 0
+
+  repository = github_repository.bootstrap[0].name
   branch     = "master"
 
   enforce_admins = false

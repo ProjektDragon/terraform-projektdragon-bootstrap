@@ -1,5 +1,7 @@
 resource "cloudflare_record" "bootstrap" {
-  zone_id = lookup(var.cloudflare_zone_ids, var.cloudflare_domain_name)
+  count = var.cloudflare_enabled == true ? 1 : 0
+
+  zone_id = var.cloudflare_zone_id
   name    = var.cloudflare_record_name
   value   = var.cloudflare_record_value
   type    = var.cloudflare_record_type

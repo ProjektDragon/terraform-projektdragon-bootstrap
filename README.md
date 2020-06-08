@@ -37,20 +37,32 @@ If you need additional access to either of above tools contact Reulan#0003 on Di
 |------|---------|
 | cloudflare | ~> 2.0 |
 | github | n/a |
+| tfe | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| cloudflare\_record\_name | Cloudflare DNS settings | `string` | `"live"` | no |
+| cloudflare\_domain\_name | Cloudflare DNS settings | `string` | `"projektdragon.dev"` | no |
+| cloudflare\_enabled | Enable providers on a case by case basis. | `bool` | `false` | no |
+| cloudflare\_record\_name | n/a | `string` | `"live"` | no |
 | cloudflare\_record\_type | n/a | `string` | `"CNAME"` | no |
 | cloudflare\_record\_value | n/a | `string` | `"projektdragon.stream"` | no |
-| cloudflare\_zone\_ids | Cloudflare Zone ID's for the ProjektDragon domain. | `map` | <pre>{<br>  "projektdragon.dev": "9d98ab1a557629db4371763f6c1ebe52"<br>}</pre> | no |
+| cloudflare\_zone\_id | n/a | `string` | n/a | yes |
+| discord\_enabled | n/a | `bool` | `false` | no |
 | discord\_webhook\_secret | Discord Webhook Settings | `string` | n/a | yes |
-| domain\_name | n/a | `string` | `"projektdragon.dev"` | no |
-| private\_repo | n/a | `bool` | `true` | no |
-| repository\_description | GitHub Repository Settings | `string` | `"the most thoughtful description"` | no |
-| repository\_url | n/a | `string` | `"http://projektdragon.com"` | no |
+| github\_enabled | n/a | `bool` | `false` | no |
+| github\_has\_downloads | n/a | `bool` | `false` | no |
+| github\_has\_issues | n/a | `bool` | `true` | no |
+| github\_has\_projects | n/a | `bool` | `false` | no |
+| github\_has\_wiki | n/a | `bool` | `false` | no |
+| github\_private\_repo | GitHub Repository Settings | `bool` | `false` | no |
+| terraform\_cloud\_enabled | n/a | `bool` | `false` | no |
+| tfc\_auto\_apply | n/a | `bool` | `false` | no |
+| tfc\_file\_triggers\_enabled | n/a | `bool` | `true` | no |
+| tfc\_remote\_execution | n/a | `bool` | `true` | no |
+| tfc\_vcs\_oauth\_token | Terraform Cloud Enterprise | `string` | n/a | yes |
+| tfc\_working\_directory | n/a | `string` | `""` | no |
 
 ## Outputs
 
