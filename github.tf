@@ -1,7 +1,7 @@
 resource "github_repository" "bootstrap" {
   name         = local.service_name
-  description  = local.service_repository_description
-  homepage_url = local.service_repository_url
+  description  = local.service_description
+  homepage_url = local.service_url
 
   private = var.github_private_repo == true ? true : false
 
