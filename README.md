@@ -24,6 +24,9 @@ In order to support this workflow, the following cloud tools are being used:
 - [Terraform Cloud](https://app.terraform.io/app/ProjektDragon/workspaces)
 
 If you need additional access to either of above tools contact Reulan#0003 on Discord.
+
+
+# Terraform module specifications
 ## Requirements
 
 | Name | Version |
