@@ -8,9 +8,19 @@ TODO:
 - Automated creation of images from Dockerfiles
 - Persistant application hosting (via Kubernetes?)
 
-## Generating Documents
+## Usage
+### Generating documents
 Ensure [terraform-docs](https://github.com/segmentio/terraform-docs) is installed.
 - `brew install terraform-docs`
 
 Include the bootstrap template README and then from the Terraform module.
 `make docs`
+
+### Cloud Tooling used
+The GitHub repositories within ProjektDragon will be bootstrapped using this module here.
+
+In order to support this workflow, the following cloud tools are being used:
+- [GitHub.com/ProjektDragon](https://github.com/ProjektDragon)
+- [Terraform Cloud](https://app.terraform.io/app/ProjektDragon/workspaces)
+
+If you need additional access to either of above tools contact Reulan#0003 on Discord.
