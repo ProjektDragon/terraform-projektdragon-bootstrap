@@ -1,4 +1,6 @@
 resource "github_repository" "bootstrap" {
+  count = var.github_enabled == true ? 1 : 0
+
   name         = local.service_name
   description  = local.service_description
   homepage_url = local.service_url
@@ -19,12 +21,14 @@ resource "github_repository" "bootstrap" {
   topics = []
 
   auto_init          = true
-  gitignore_template = "Terraform"
-  license_template   = "mit"
+  gitignore_template = var.github_gitignore_template
+  license_template   = var.github_license_template
 }
 
 resource "github_branch_protection" "bootstrap" {
-  repository = github_repository.bootstrap.name
+  count = var.github_enabled == true ? 1 : 0
+
+  repository = github_repository.bootstrap[0].name
   branch     = "master"
 
   enforce_admins = false

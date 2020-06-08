@@ -87,6 +87,16 @@ variable "github_has_downloads" {
   default = false
 }
 
+variable "github_gitignore_template" {
+  type = string
+  default = "Terraform"
+}
+
+variable "github_license_template" {
+  type = string
+  default = "mit"
+}
+
 // Terraform Cloud Enterprise
 variable "tfc_vcs_oauth_token" {
   type = string
