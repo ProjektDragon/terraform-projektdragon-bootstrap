@@ -1,16 +1,16 @@
 resource "github_repository" "bootstrap" {
   count = var.github_enabled == true ? 1 : 0
 
-  name         = local.service_name
-  description  = local.service_description
-  homepage_url = local.service_url
+  name         = var.service_name
+  description  = var.service_description
+  homepage_url = var.service_url
 
   private = var.github_private_repo == true ? true : false
 
   has_issues    = var.github_has_issues
-  has_projects  = var.github_has_projects 
-  has_wiki      = var.github_has_wiki 
-  has_downloads = var.github_has_downloads 
+  has_projects  = var.github_has_projects
+  has_wiki      = var.github_has_wiki
+  has_downloads = var.github_has_downloads
 
   allow_merge_commit = false
   allow_squash_merge = true
