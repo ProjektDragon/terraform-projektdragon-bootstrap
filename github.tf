@@ -3,7 +3,7 @@ resource "github_repository" "bootstrap" {
 
   name         = var.service_name
   description  = var.service_description
-  homepage_url = var.service_url
+  homepage_url = var.cloudflare_enabled == true ? cloudflare_record.bootstrap.hostname : var.service_url
 
   private = var.github_private_repo == true ? true : false
 
@@ -20,9 +20,9 @@ resource "github_repository" "bootstrap" {
 
   topics = []
 
-  auto_init          = true
-  gitignore_template = var.github_gitignore_template
-  license_template   = var.github_license_template
+  auto_init          = var.github_manual_repo == true ? false : true
+  gitignore_template = var.github_manual_repo == true ? null : var.github_gitignore_template
+  license_template   = var.github_manual_repo == true ? null : var.github_license_template
 }
 
 resource "github_branch_protection" "bootstrap" {
