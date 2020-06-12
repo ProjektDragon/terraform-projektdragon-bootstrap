@@ -3,7 +3,7 @@ resource "github_repository" "bootstrap" {
 
   name         = var.service_name
   description  = var.service_description
-  homepage_url = var.cloudflare_enabled == true ? cloudflare_record.bootstrap.hostname : var.service_url
+  homepage_url = var.cloudflare_enabled == true ? cloudflare_record.bootstrap[0].hostname : var.service_url
 
   private = var.github_private_repo == true ? true : false
 
