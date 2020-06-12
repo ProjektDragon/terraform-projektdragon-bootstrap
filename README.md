@@ -61,6 +61,7 @@ If you need additional access to either of above tools contact Reulan#0003 on Di
 | github\_has\_projects | n/a | `bool` | `false` | no |
 | github\_has\_wiki | n/a | `bool` | `false` | no |
 | github\_license\_template | Software license | `string` | `"mit"` | no |
+| github\_manual\_repo | Was this repository created via the UI? | `bool` | `false` | no |
 | github\_private\_repo | Is this repository hidden to the public? | `bool` | `false` | no |
 | service\_description | Brief description on what the service does or accomplishes. | `string` | `"the most thoughtful description"` | no |
 | service\_name | The name of the GitHub repository + Terraform Workspace. | `string` | `"bootstrap-template"` | no |

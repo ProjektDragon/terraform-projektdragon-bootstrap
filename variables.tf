@@ -87,6 +87,12 @@ variable "discord_webhook_secret" {
 }
 
 // GitHub Repository Settings
+variable "github_manual_repo" {
+  type        = bool
+  description = "Was this repository created via the UI?"
+  default     = false
+}
+
 variable "github_private_repo" {
   type        = bool
   description = "Is this repository hidden to the public?"
