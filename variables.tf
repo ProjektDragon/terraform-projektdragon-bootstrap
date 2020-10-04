@@ -2,7 +2,7 @@
 locals {
   organization = "ProjektDragon" // Terraform Cloud + GitHub Organization name
 
-  approved_users    = ["mpmsimo"]
+  approved_users    = ["reulan"]
   terraform_version = "0.12.24"
 }
 
